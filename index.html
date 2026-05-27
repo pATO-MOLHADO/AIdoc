@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIDoc - Clinical Workspace</title>
+    <meta name="description" content="AIDoc - Plataforma inteligente de assistÃªncia mÃ©dica com anÃ¡lise de exames por InteligÃªncia Artificial">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons for modern minimalist icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="light">
+<div class="app-wrapper">
+        
+        <!-- TOP NAVBAR -->
+        <nav class="top-navbar">
+            <div class="navbar-left">
+                <div class="logo">
+                    <i data-feather="activity"></i>
+                    <span>AIDoc</span>
+                </div>
+                
+                <div class="navbar-nav" id="navbar-nav">
+                    <a href="#" class="nav-item active" data-view="entry">Entrada</a>
+                    <a href="#" class="nav-item" data-view="dashboard">Workspace</a>
+                    <a href="#" class="nav-item" data-view="analysis">IA Analysis</a>
+                    <a href="#" class="nav-item" data-view="patients">Patients</a>
+                    <a href="#" class="nav-item" data-view="login">Login</a>
+                    <a href="#" class="nav-item" data-view="register">Cadastro</a>
+                </div>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="header-search">
+                    <i data-feather="search"></i>
+                    <input type="text" placeholder="Cmd+K to search...">
+                </div>
+                <button class="icon-btn" id="btn-theme-toggle" title="Alternar tema" aria-label="Alternar tema">
+                    <i data-feather="moon"></i>
+                </button>
+                <button class="icon-btn" id="btn-start-tour" title="Iniciar tour" aria-label="Iniciar tour">
+                    <i data-feather="map"></i>
+                </button>
+                <button class="icon-btn"><i data-feather="bell"></i><span class="badge">3</span></button>
+                <div class="user-profile" title="Protótipo">
+                    <div>
+                        <div class="user-name" id="current-user-name">Demo</div>
+                        <div class="user-role" id="current-user-role">Protótipo</div>
+                    </div>
+                    <div class="user-avatar" id="current-user-avatar">AD</div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="app-main">
+            
+            <div class="app-content">
+
+                <section id="view-entry" class="view active">
+                    <div class="site-entry">
+                        <div class="site-entry-main">
+                            <div class="logo auth-logo">
+                                <i data-feather="activity"></i>
+                                <span>AIDoc</span>
+                            </div>
+                            <h1>Entrada no site</h1>
+                            <p>Escolha como deseja acessar o ambiente clínico inteligente do AIDoc.</p>
+                            <div class="entry-actions">
+                                <button class="btn btn-primary btn-large" type="button" data-view-target="login">
+                                    <i data-feather="log-in"></i> Fazer login
+                                </button>
+                                <button class="btn btn-outline btn-large" type="button" data-view-target="register">
+                                    <i data-feather="user-plus"></i> Criar cadastro
+                                </button>
+                                <button class="btn btn-text btn-large" type="button" data-demo-access>
+                                    <i data-feather="monitor"></i> Acessar demo
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="entry-preview">
+                            <div class="entry-preview-header">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="entry-preview-row strong">
+                                <i data-feather="cpu"></i>
+                                <div>
+                                    <strong>IA contextual</strong>
+                                    <small>Análise de exames com histórico do paciente.</small>
+                                </div>
+                            </div>
+                            <div class="entry-preview-row">
+                                <i data-feather="users"></i>
+                                <div>
+                                    <strong>Perfil do paciente</strong>
+                                    <small>Linha do tempo, laudos e evolução clínica.</small>
+                                </div>
+                            </div>
+                            <div class="entry-preview-row alert">
+                                <i data-feather="alert-triangle"></i>
+                                <div>
+                                    <strong>Priorização médica</strong>
+                                    <small>Destaques para piora e casos de atenção.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="view-login" class="view">
+                    <div class="auth-page">
+                        <div class="auth-brand-panel">
+                            <div class="logo auth-logo">
+                                <i data-feather="activity"></i>
+                                <span>AIDoc</span>
+                            </div>
+                            <h1>Login médico</h1>
+                            <p>Acesse o workspace clínico, histórico de pacientes e análises contextuais por IA.</p>
+                            <div class="auth-highlights">
+                                <span><i data-feather="shield"></i> Interface segura</span>
+                                <span><i data-feather="database"></i> Histórico clínico</span>
+                                <span><i data-feather="cpu"></i> IA contextual</span>
+                            </div>
+                        </div>
+
+                        <div class="auth-card">
+                            <form id="login-form" class="auth-form active">
+                                <div>
+                                    <h2>Entrar</h2>
+                                    <p>Protótipo visual da tela de acesso.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-email">E-mail</label>
+                                    <input type="email" id="login-email" placeholder="medico@clinica.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-password">Senha</label>
+                                    <input type="password" id="login-password" placeholder="Sua senha" required>
+                                </div>
+                                <button class="btn btn-primary btn-large w-100" type="submit">
+                                    <i data-feather="log-in"></i> Entrar
+                                </button>
+                                <button class="btn btn-text w-100" type="button" data-view-target="register">
+                                    Criar uma conta
+                                </button>
+                                <p class="auth-message" id="login-message"></p>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="view-register" class="view">
+                    <div class="auth-page">
+                        <div class="auth-brand-panel">
+                            <div class="logo auth-logo">
+                                <i data-feather="user-plus"></i>
+                                <span>AIDoc</span>
+                            </div>
+                            <h1>Cadastro clínico</h1>
+                            <p>Crie a identidade profissional que aparece no ambiente de atendimento digital.</p>
+                            <div class="auth-highlights">
+                                <span><i data-feather="user-check"></i> Perfil profissional</span>
+                                <span><i data-feather="briefcase"></i> CRM e especialidade</span>
+                                <span><i data-feather="lock"></i> Credenciais</span>
+                            </div>
+                        </div>
+
+                        <div class="auth-card">
+                            <form id="register-form" class="auth-form active">
+                                <div>
+                                    <h2>Criar cadastro</h2>
+                                    <p>Protótipo visual da tela de cadastro.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-name">Nome completo</label>
+                                    <input type="text" id="register-name" placeholder="Dra. Ana Martins" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="register-role">Perfil</label>
+                                        <input type="text" id="register-role" placeholder="Cardiologista" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="register-crm">CRM</label>
+                                        <input type="text" id="register-crm" placeholder="CRM 00000">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-email">E-mail</label>
+                                    <input type="email" id="register-email" placeholder="medico@clinica.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-password">Senha</label>
+                                    <input type="password" id="register-password" placeholder="Mínimo de 6 caracteres" minlength="6" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-confirm-password">Confirmar senha</label>
+                                    <input type="password" id="register-confirm-password" placeholder="Repita a senha" minlength="6" required>
+                                </div>
+                                <button class="btn btn-primary btn-large w-100" type="submit">
+                                    <i data-feather="user-plus"></i> Criar cadastro
+                                </button>
+                                <button class="btn btn-text w-100" type="button" data-view-target="login">
+                                    Já tenho cadastro
+                                </button>
+                                <p class="auth-message" id="register-message"></p>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- DASHBOARD VIEW -->
+                <section id="view-dashboard" class="view" data-tour="dashboard">
+                    
+                    <div class="dashboard-header modular-header workspace-hero" data-tour="header">
+                        <div>
+                            <h1>Clinical Workspace</h1>
+                            <p id="dashboard-date">Prioridades clinicas, fluxo operacional e analise IA em um painel organizado.</p>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn btn-outline" id="btn-reset-layout">
+                                <i data-feather="layout"></i> Reset Layout
+                            </button>
+                            <button class="btn btn-primary" id="btn-new-analysis">
+                                <i data-feather="plus"></i> New Analysis
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- MODULAR GRID -->
+                    <div class="modular-grid" id="modular-dashboard" aria-label="Dashboard modular personalizavel" data-tour="widgets">
+                        
+                        <!-- WIDGET 1: Critical Exams -->
+                        <article class="widget widget-priority" id="w-critical" data-default-col="7" data-default-order="1" data-zone="critical">
+                            <div class="widget-header">
+                                <div class="widget-title"><i data-feather="alert-octagon" class="text-red"></i> Critical Exams</div>
+                                <div class="widget-controls">
+                                    <button class="ctrl-btn expand-btn" title="Expandir"><i data-feather="maximize-2"></i></button>
+                                    <button class="ctrl-btn minimize-btn"><i data-feather="minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <div class="triage-inbox" id="triage-critical">
+                                    <!-- JS populated -->
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- WIDGET 2: Quick Analysis -->
+                        <article class="widget widget-action" id="w-quick" data-default-col="5" data-default-order="2" data-zone="actions" data-tour="quick-analysis">
+                            <div class="widget-header">
+                                <div class="widget-title"><i data-feather="zap" class="text-yellow"></i> Quick Analysis</div>
+                                <div class="widget-controls">
+                                    <button class="ctrl-btn resize-btn" data-size="4">S</button>
+                                    <button class="ctrl-btn resize-btn" data-size="6">M</button>
+                                    <button class="ctrl-btn expand-btn" title="Expandir"><i data-feather="maximize-2"></i></button>
+                                    <button class="ctrl-btn minimize-btn"><i data-feather="minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="widget-content flex-center">
+                                <button class="btn btn-primary w-100 btn-large" onclick='document.querySelector("[data-view=analysis]").click()'>
+                                    <i data-feather="cpu"></i> Analyze New Report
+                                </button>
+                                <p class="text-muted mt-3 text-center" style="font-size: 13px;">Drag PDF anywhere or click to start.</p>
+                            </div>
+                        </article>
+
+                        <!-- WIDGET 3: AI Insights -->
+                        <article class="widget widget-insights" id="w-insights" data-default-col="12" data-default-order="3" data-zone="intelligence">
+                            <div class="widget-header">
+                                <div class="widget-title"><i data-feather="cpu" class="text-green"></i> Global AI Insights</div>
+                                <div class="widget-controls">
+                                    <button class="ctrl-btn resize-btn" data-size="4">S</button>
+                                    <button class="ctrl-btn resize-btn" data-size="6">M</button>
+                                    <button class="ctrl-btn resize-btn" data-size="12">L</button>
+                                    <button class="ctrl-btn expand-btn" title="Expandir"><i data-feather="maximize-2"></i></button>
+                                    <button class="ctrl-btn minimize-btn"><i data-feather="minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <div class="stats-row" id="global-insights">
+                                    <!-- JS populated -->
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- WIDGET 4: Patient Flow -->
+                        <article class="widget" id="w-flow" data-default-col="7" data-default-order="4" data-zone="flow">
+                            <div class="widget-header">
+                                <div class="widget-title"><i data-feather="trending-up" class="text-green"></i> Patient Flow</div>
+                                <div class="widget-controls">
+                                    <button class="ctrl-btn resize-btn" data-size="6">M</button>
+                                    <button class="ctrl-btn resize-btn" data-size="12">L</button>
+                                    <button class="ctrl-btn expand-btn" title="Expandir"><i data-feather="maximize-2"></i></button>
+                                    <button class="ctrl-btn minimize-btn"><i data-feather="minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <div class="bar-chart-wrapper" id="bar-chart">
+                                    <!-- JS populated -->
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- WIDGET 5: Recent Patients -->
+                        <article class="widget" id="w-recent" data-default-col="5" data-default-order="5" data-zone="activity">
+                            <div class="widget-header">
+                                <div class="widget-title"><i data-feather="users" class="text-primary"></i> Routine & Recent</div>
+                                <div class="widget-controls">
+                                    <button class="ctrl-btn resize-btn" data-size="6">M</button>
+                                    <button class="ctrl-btn resize-btn" data-size="12">L</button>
+                                    <button class="ctrl-btn expand-btn" title="Expandir"><i data-feather="maximize-2"></i></button>
+                                    <button class="ctrl-btn minimize-btn"><i data-feather="minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="widget-content table-wrapper">
+                                <div class="triage-inbox" id="triage-routine">
+                                    <!-- JS populated -->
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- WIDGET 6: Upcoming Reviews -->
+                        <article class="widget widget-compact" id="w-upcoming" data-default-col="4" data-default-order="6" data-zone="schedule">
+                            <div class="widget-header">
+                                <div class="widget-title"><i data-feather="calendar"></i> Upcoming Reviews</div>
+                                <div class="widget-controls">
+                                    <button class="ctrl-btn resize-btn" data-size="4">S</button>
+                                    <button class="ctrl-btn resize-btn" data-size="8">M</button>
+                                    <button class="ctrl-btn expand-btn" title="Expandir"><i data-feather="maximize-2"></i></button>
+                                    <button class="ctrl-btn minimize-btn"><i data-feather="minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <div id="upcoming-appointments">
+                                    <!-- JS populated -->
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- WIDGET 7: Follow-ups -->
+                        <article class="widget widget-compact" id="w-followup" data-default-col="4" data-default-order="7" data-zone="followup">
+                            <div class="widget-header">
+                                <div class="widget-title"><i data-feather="message-circle" class="text-yellow"></i> Auto Follow-ups</div>
+                                <div class="widget-controls">
+                                    <button class="ctrl-btn resize-btn" data-size="4">S</button>
+                                    <button class="ctrl-btn resize-btn" data-size="8">M</button>
+                                    <button class="ctrl-btn expand-btn" title="Expandir"><i data-feather="maximize-2"></i></button>
+                                    <button class="ctrl-btn minimize-btn"><i data-feather="minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <div id="followups-list">
+                                    <!-- JS populated -->
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <!-- WIDGET 8: Notifications -->
+                        <article class="widget widget-compact" id="w-notifications" data-default-col="4" data-default-order="8" data-zone="notifications">
+                            <div class="widget-header">
+                                <div class="widget-title"><i data-feather="bell" class="text-primary"></i> Notifications</div>
+                                <div class="widget-controls">
+                                    <button class="ctrl-btn resize-btn" data-size="4">S</button>
+                                    <button class="ctrl-btn resize-btn" data-size="8">M</button>
+                                    <button class="ctrl-btn expand-btn" title="Expandir"><i data-feather="maximize-2"></i></button>
+                                    <button class="ctrl-btn minimize-btn"><i data-feather="minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <div id="notifications-list"></div>
+                            </div>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- ANALYSIS VIEW (Remains Clinical Card Output) -->
+                <section id="view-analysis" class="view">
+                    <div class="dashboard-header">
+                        <div>
+                            <h1>Command Center (IA Analysis)</h1>
+                            <p>Envie laudos para avaliaÃ§Ã£o inteligente e extraÃ§Ã£o de marcadores clÃ­nicos.</p>
+                        </div>
+                    </div>
+
+                    <div class="analysis-workspace">
+                        <div class="analysis-card">
+                            <form id="analysis-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="patient-name">Nome do Paciente</label>
+                                        <input type="text" id="patient-name" placeholder="Ex: Maria Silva" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patient-age">Idade</label>
+                                        <input type="number" id="patient-age" placeholder="Ex: 45" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="patient-conditions">CondiÃ§Ãµes mÃ©dicas e contexto clÃ­nico</label>
+                                    <input type="text" id="patient-conditions" placeholder="Ex: diabetes tipo 2, hipertensÃ£o, uso de metformina">
+                                </div>
+
+                                <div class="upload-box" id="upload-area">
+                                    <i data-feather="file-plus"></i>
+                                    <div class="upload-title">Arraste o PDF do laudo aqui</div>
+                                    <div class="upload-subtitle">Ou cole o texto na Ã¡rea abaixo</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Texto do Laudo</label>
+                                    <textarea id="exam-text" placeholder="Cole o resultado do exame para anÃ¡lise..." required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-large w-100" id="btn-analyze">
+                                    <i data-feather="cpu"></i> Iniciar AnÃ¡lise
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="results-box" id="results-container">
+                            <div id="results-empty" style="text-align:center; padding: 40px 0; color: var(--color-text-muted);">
+                                <i data-feather="activity" style="width: 48px; height: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
+                                <h3>Aguardando Laudo</h3>
+                                <p>Preencha os dados Ã  esquerda e inicie a anÃ¡lise.</p>
+                            </div>
+                            
+                            <div id="results-loading" class="hidden" style="text-align:center; padding: 40px 0;">
+                                <div style="width:40px; height:40px; border:3px solid var(--color-primary-light); border-top-color:var(--color-primary); border-radius:50%; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
+                                <h3>Analisando marcadores clÃ­nicos...</h3>
+                            </div>
+
+                            <div id="results-content" class="hidden results-content">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="view-patients" class="view">
+                    <div class="dashboard-header patient-header">
+                        <div>
+                            <h1>Perfil do Paciente</h1>
+                            <p class="text-muted">HistÃ³rico clÃ­nico acumulativo, laudos IA e linha do tempo de evoluÃ§Ã£o.</p>
+                        </div>
+                        <button class="btn btn-outline" id="btn-clear-patient-history">
+                            <i data-feather="trash-2"></i> Limpar histÃ³rico local
+                        </button>
+                    </div>
+
+                    <div class="patient-profile-layout">
+                        <aside class="patient-list-panel">
+                            <div class="panel-title">Pacientes acompanhados</div>
+                            <div id="patient-list" class="patient-list"></div>
+                        </aside>
+
+                        <section class="patient-profile-panel" id="patient-profile">
+                            <div class="patient-empty-state">
+                                <i data-feather="user-plus"></i>
+                                <h3>Nenhum histÃ³rico clÃ­nico ainda</h3>
+                                <p>Analise um exame para criar automaticamente o perfil clÃ­nico do paciente.</p>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/patientStore.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/analysis.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/app.js"></script>
+
+        <!-- Product Tour -->
+    <script src="js/productTour.js"></script>
+    <script src="js/tilt.js"></script>
+
+</body>
+</html>
+
