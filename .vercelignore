@@ -1,0 +1,8 @@
+backend/
+app/
+sql/
+requirements.txt
+schema.sql
+SPRINTS.md
+README.md
+readme.md
